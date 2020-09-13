@@ -17,6 +17,11 @@
 ## General Flow:
  To start, run the _game/graphics.py_ to create training data for the neural network to train on. Once training data has been created, you can then run _training/net_train.py_ to train a network on the data. After training, the network can be tested by running the _testing/use_net_model.py_ function.
  
+### Training:
+- When creating training data, it may be necessary to hover at the red dot in the training game. This helps the model learn to stop at the target. Without using this method, testing will fail.
+- dt was not a necessary output for training. Eliminated this output to reduce model complexity. 
+- X_pos, Y_pos were not necessary for inputs. Eliminated these inputs to reduce model complexity. 
+ 
 ## Future Upgrades:
 1. Script tuning_pipeline.py
 - Build a tuning pipeline to automatically find net/training parameters through random search
