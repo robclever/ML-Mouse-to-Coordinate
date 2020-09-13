@@ -13,9 +13,9 @@ import time
 # Screen training GUI
 import graphics
 import random
-import matplotlib as mat
 import pandas as pd
 import numpy as np
+import os
 
 # Time conversion
 #TODO:
@@ -61,9 +61,16 @@ class find_system_model():
         mouse.unhook(self.events.append)
         self.organize_data(truth_x, truth_y)
         
+        # Check if /_user/data/ directory exists, and make dir if DNE
+        os.chdir("..")
+        current = os.getcwd()
+        if os.path.exists(current + '/_user/data/') is False:
+            os.mkdir(current + '\\_user\\data\\')
+            print('> Data directory created at {}'.format((current + '\\_user\\data\\')))
+        
         # Output data to csv
-        self.train_data.to_csv('data/train.csv', index=False)
-        self.target_data.to_csv('data/output.csv', index=False)
+        self.train_data.to_csv('./_user/data/train.csv', index=False)
+        self.target_data.to_csv('./_user/data/output.csv', index=False)
         
     def organize_data(self, truth_x, truth_y):
         
@@ -201,7 +208,7 @@ def draw_circle(win, c=None):
     return (c, x, y)
 
 ### END Step 1.
-num_runs = 60
+num_runs = 5
 
 mouse_data = find_system_model()
 mouse_data.record_data() 

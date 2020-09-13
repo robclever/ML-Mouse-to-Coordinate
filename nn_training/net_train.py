@@ -7,6 +7,7 @@ Created on Sat Sep 12 15:24:21 2020
 # Array/Data frame manipulation
 import pandas as pd
 import numpy as np
+import os
 
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior() 
@@ -24,9 +25,17 @@ from pickle import dump
 # Plotting
 import matplotlib.pyplot as pyplot
 
+
+os.chdir('..')
+current = os.getcwd()
+if os.path.exists(current + '/_user/models/') is False:
+    os.mkdir(current + '\\_user\\models\\')
+    print('> Models directory created at {}'.format((current + '\\_user\\models\\')))
+    
 # Data Definition
-data = 'data/train_reduced.csv'
-target = 'data/output_reduced.csv'
+data = current + '/_user/data/train.csv'
+target = current + '/_user/data/output.csv'
+
 scaling = True
 data_df = pd.read_csv(data)
 target_df = pd.read_csv(target)
@@ -83,14 +92,14 @@ pyplot.show()
 
 # serialize model to YAML
 model_yaml = model.to_yaml()
-with open("models/model.yaml", "w") as yaml_file:
+with open(current + "/_user/models/model.yaml", "w") as yaml_file:
     yaml_file.write(model_yaml)
 # serialize weights to HDF5
-abc = model.save("models/model.h5")
-print(abc)
-print("Saved model to disk")
+model_location = model.save(current + "/_user/models/model.h5")
+print(model_location)
+print("> Saved model to disk")
 
 # dump scales
 if scaling is True:
-    dump(scaler_input, open('models/scaler_input.pkl', 'wb'))
-    dump(scaler_output, open('models/scaler_output.pkl', 'wb'))
+    dump(scaler_input, open(current + '/_user/models/scaler_input.pkl', 'wb'))
+    dump(scaler_output, open(current + '/_user/models/scaler_output.pkl', 'wb'))

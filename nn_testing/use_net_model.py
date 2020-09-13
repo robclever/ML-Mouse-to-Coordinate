@@ -99,9 +99,11 @@ class use_single_net():
             
         
 # Test Functions:
-print(os.getcwd())
+os.chdir('..')
+current = os.getcwd()
+
 #net = use_net('working/practical_model/models/model.h5', 'working/practical_model/models/scaler_input.pkl', 'working/practical_model/models/scaler_output.pkl')
-net = use_single_net('models/model.h5', 'models/scaler_input.pkl', 'models/scaler_output.pkl')
+net = use_single_net(current + '/_user/models/model.h5', current + '/_user/models/scaler_input.pkl', current + '/_user/models/scaler_output.pkl')
 #net = use_net('models/model.h5')
 net.run_net(500, 500)
 #profile.run('net.run_net(1800, 200)')
