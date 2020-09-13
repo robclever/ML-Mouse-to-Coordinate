@@ -65,7 +65,7 @@ model = Sequential()
 model.add(Dense(85, input_dim=input_features, activation='sigmoid'))
 model.add(BatchNormalization())
 model.add(Dropout(.2))
-model.add(Dense(60, input_dim=input_features, activation='sigmoid'))
+model.add(Dense(60, activation='sigmoid'))
 model.add(BatchNormalization())
 model.add(Dropout(.2))
 
