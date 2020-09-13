@@ -2,7 +2,7 @@
  Logistic Regression model trained on moving mouse to user specified coordinate, trained on data from user.
 
 ## General Flow:
- To start, run the _game/graphics.py_ to create training data for the neural network to train on. Once training data has been created, you can then run _training/net_train.py_ to train a network on the data. After training, the network can be tested by running _testing/use_net_model.py_ function.
+ To start, run the _game/graphics.py_ to create training data for the neural network to train on. Once training data has been created, you can then run _training/net_train.py_ to train a network on the data. After training, the network can be tested by running the _testing/use_net_model.py_ function.
  
 ## Future Upgrades:
 1. Script tuning_pipeline.py
