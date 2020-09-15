@@ -45,6 +45,7 @@ class tune():
         self.drop = []
         self.act = []
         self.input_size = input_size
+        self.batch_size = 0
         self.model = []
         pass
     
@@ -79,7 +80,7 @@ class tune():
         es = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=5)
         
         # fit the keras model on the dataset
-        history = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=5000, batch_size=100, callbacks=[es])
+        history = self.model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=5000, self.batch_size=100, callbacks=[es])
     
     def _def_training_param(self):
         pass

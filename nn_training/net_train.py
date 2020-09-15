@@ -14,7 +14,7 @@ tf.disable_v2_behavior()
 
 # NN
 from keras.models import Sequential
-from keras.layers import Dense, Flatten, Dropout, BatchNormalization
+from keras.layers import Dense, Dropout, BatchNormalization
 from keras.callbacks import EarlyStopping
 
 # Data Processing
